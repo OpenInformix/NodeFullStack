@@ -1,3 +1,6 @@
+// Copyright (c) 2018 Sathyanesh Krishnan. All rights reserved.
+// Licensed under the Apache License, Version 2.0
+
 var dbobj = require('ifxnjs');
 
 function DirExec( conn, ErrIgn, sql )
