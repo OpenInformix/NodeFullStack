@@ -1,0 +1,10 @@
+
+
+
+curl -X POST -H "Accept: application/json" -H "Content-Type: application/json" -d '{
+  "id": 102,
+  "name": "Test-2"
+}
+' "http://localhost:3000/product"
+
+
