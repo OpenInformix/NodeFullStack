@@ -5,7 +5,7 @@ var db = {
     "name": "CD",
     "description": "Very good CD",
     "price": 1
-   },    
+   },
    {
     "id": 2,
     "name": "DVD",

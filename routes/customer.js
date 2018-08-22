@@ -21,16 +21,16 @@ var router = express.Router();
 // Specific Item: 
 // 200 (OK) or 204 (No Content). 404 (Not Found), if ID not found or invalid.
 
-// PATCH	Update/Modify	
-// Entire Collection: 
-// 404 (Not Found), unless you want to modify the collection itself.	
-// Specific Item: 
+// PATCH	Update/Modify
+// Entire Collection:
+// 404 (Not Found), unless you want to modify the collection itself.
+// Specific Item:
 // 200 (OK) or 204 (No Content). 404 (Not Found), if ID not found or invalid.
 
-// DELETE	Delete	
-// Entire Collection: 
-// 404 (Not Found), unless you want to delete the whole collection—not often desirable.	
-// Specific Item: 
+// DELETE	Delete
+// Entire Collection:
+// 404 (Not Found), unless you want to delete the whole collection—not often desirable.
+// Specific Item:
 // 200 (OK). 404 (Not Found), if ID not found or invalid.
 
 router.get('/',

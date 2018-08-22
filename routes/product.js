@@ -5,34 +5,34 @@ var router = express.Router();
 
 // The CURD design pattern followed
 
-// POST	Create	
-// Entire Collection: 
-// 201 (Created), 'Location' header with link to /product/{id} containing new ID.	
-// Specific Item: 
+// POST	Create
+// Entire Collection:
+// 201 (Created), 'Location' header with link to /product/{id} containing new ID.
+// Specific Item:
 // 404 (Not Found), 409 (Conflict) if resource already exists..
 
-// GET	Read	
-// Entire Collection: 
-// 200 (OK), list of products. Use pagination, sorting and filtering to navigate big lists.	
-// Specific Item: 
+// GET	Read
+// Entire Collection:
+// 200 (OK), list of products. Use pagination, sorting and filtering to navigate big lists.
+// Specific Item:
 // 200 (OK), single product. 404 (Not Found), if ID not found or invalid.
 
-// PUT	Update/Replace	
-// Entire Collection: 
-// 404 (Not Found), unless you want to update/replace every resource in the entire collection.	
-// Specific Item: 
+// PUT	Update/Replace
+// Entire Collection:
+// 404 (Not Found), unless you want to update/replace every resource in the entire collection.
+// Specific Item:
 // 200 (OK) or 204 (No Content). 404 (Not Found), if ID not found or invalid.
 
-// PATCH	Update/Modify	
-// Entire Collection: 
-// 404 (Not Found), unless you want to modify the collection itself.	
-// Specific Item: 
+// PATCH	Update/Modify
+// Entire Collection:
+// 404 (Not Found), unless you want to modify the collection itself.
+// Specific Item:
 // 200 (OK) or 204 (No Content). 404 (Not Found), if ID not found or invalid.
 
-// DELETE	Delete	
-// Entire Collection: 
-// 404 (Not Found), unless you want to delete the whole collection—not often desirable.	
-// Specific Item: 
+// DELETE	Delete
+// Entire Collection:
+// 404 (Not Found), unless you want to delete the whole collection—not often desirable.
+// Specific Item:
 // 200 (OK). 404 (Not Found), if ID not found or invalid.
 
 
@@ -65,11 +65,11 @@ router.get('/:id',
 router.post('/',
     function (req, res, next)
     {
-        // POST	Create	
-        // Entire Collection: 
-        // 201 (Created), 'Location' header with link to /product/{id} containing new ID.	
-        // Specific Item: 
-        // 404 (Not Found), 409 (Conflict) if resource already exists..        
+        // POST	Create
+        // Entire Collection:
+        // 201 (Created), 'Location' header with link to /product/{id} containing new ID.
+        // Specific Item:
+        // 404 (Not Found), 409 (Conflict) if resource already exists..
         var x= req.body;
         console.log(x);
         if(  autil.SearchByID(db.product, x.id) == undefined )
@@ -79,7 +79,7 @@ router.post('/',
         }
         else
         {
-            // 409 (Conflict) if resource already exists..        
+            // 409 (Conflict) if resource already exists..
             res.status(409).json(x);
         }
     });
@@ -87,10 +87,10 @@ router.post('/',
 router.delete('/:id',
     function (req, res, next)
     {
-        // DELETE Delete	
-        // Entire Collection: 
-        // 404 (Not Found), unless you want to delete the whole collection—not often desirable.	
-        // Specific Item: 
+        // DELETE Delete
+        // Entire Collection:
+        // 404 (Not Found), unless you want to delete the whole collection—not often desirable.
+        // Specific Item:
         // 200 (OK). 404 (Not Found), if ID not found or invalid.
 
         var id=req.params.id;
