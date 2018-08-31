@@ -1,4 +1,4 @@
-## SimpleNodeRest
+## SimpleNodeREST
 Licensed under the Apache License, Version 2.0
 
 
@@ -21,9 +21,9 @@ This is a basic sample of REST API created by using Nodejs. In this we used midd
 #### Setup the project
 ```bash
 # Clone the project
-git clone https://github.com/OpenInformix/SimpleNodeRest.git
+git clone https://github.com/OpenInformix/SimpleNodeREST.git
 
-cd SimpleNodeRest
+cd SimpleNodeREST
 npm install
 ```
 
