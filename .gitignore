@@ -6,3 +6,9 @@
 **/node_modules
 package-lock.json
 
+*.log
+tmp.*
+0
+1
+0.*
+1.*

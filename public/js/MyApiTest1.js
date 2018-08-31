@@ -16,7 +16,6 @@ class MyApiTest1
             MyErrorHandler( undefined );
         });
 
-        
         request.fail(function (jqXHR, textStatus, err)
         {
             // just pass the jqXHR: Promise interface
@@ -66,7 +65,7 @@ class MyApiTest1
         {
             jsonObj = TheJsonData;
         }
-        
+
         var jsonPretty = JSON.stringify(jsonObj, null, ' ');
         $('#MyJsonResult').empty().append(jsonPretty);
         hljs.initHighlighting.called = false;
@@ -110,7 +109,7 @@ class MyApiTest1
         }
 
         this.SimpleAjax(ajaxObj, DemoObj.DisplayJsonData, DemoObj.DisplayError);
-    }    
+    }
 }
 
 const DemoObj = new MyApiTest1();
@@ -119,7 +118,7 @@ const DemoObj = new MyApiTest1();
 //$(document).ready(  function ()
 $(() => {
     // jQuery document ready
-    var LocalData = '{ "name": "Static Json Data","author": { "name": "Gandhi", "email": "123@gmail.com", "contact": [{"location": "office", "number": 123456}, {"location": "home", "number": 987654}] } }';
+    var LocalData = '{ "Description": "This is from static page", "action" : "do a result refresh", "name": "Static Json Data","author": { "name": "Gandhi", "email": "123@gmail.com", "contact": [{"location": "office", "number": 123456}, {"location": "home", "number": 987654}] } }';
 
     //DisplayData(LocalData);
     DemoObj.DisplayJsonData(LocalData);
@@ -129,7 +128,7 @@ $(() => {
 
     $('.MyActionSelectList li  a').click(function(e){
         var elem = document.getElementById("Action1");
-        elem.innerText = $(this).text();       
+        elem.innerText = $(this).text();
     });
 });
 
