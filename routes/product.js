@@ -1,5 +1,5 @@
-var dbs = require('../db/InMemDbService');
-var prod_srv = require('../db/IfxProductService');
+// var dbs = require('../db/InMemDbService');
+var dbs = require('../db/IfxProductService');
 var express = require('express');
 var router = express.Router();
 
@@ -65,7 +65,6 @@ router.post('/',
         // Specific Item:
         // 404 (Not Found), 409 (Conflict) if resource already exists..
         console.log(req.body);
-        //prod_srv.PostReq( x.id, req.body );
 
         if (dbs.PostReq(req.body.id, req.body) == true) {
             res.status(201).json(req.body);
