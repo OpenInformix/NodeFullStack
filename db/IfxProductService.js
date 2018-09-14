@@ -62,13 +62,14 @@ class IfxProductService {
     ////////////////////////////////////////////////////////////////////
     GetReq(ReqBody) {
         this.DbConnect();
-        console.log("GetReq (no ID)" );
-        return ({ "id": 0 });
+        var products = this.Conn.querySync( "SELECT * FROM products" );
+        return ( products );
     }
 
     GetIdReq(id) {
-        console.log("GetIdReq id=" + id);
-        return ({ "id": 0 });
+        this.DbConnect();
+        var product = this.Conn.querySync( "SELECT * FROM products WHERE id = " + id );
+        return ( product );
     }
 
     PostReq(id, ReqBody) {

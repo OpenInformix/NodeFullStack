@@ -18,3 +18,8 @@ CREATE TABLE orders (
  qty int,
  strjs LVARCHAR );
 
+
+
+INSERT INTO products VALUES ( 1, 'CD',  '{ "price": 101, "info": "some other info" }' );
+INSERT INTO products VALUES ( 2, 'DVD', '{ "price": 102, "info": "some other info" }' );
+INSERT INTO products VALUES ( 3, 'BD',  '{ "price": 103, "info": "some other info" }' );
