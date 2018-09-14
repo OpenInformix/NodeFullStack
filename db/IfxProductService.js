@@ -1,4 +1,5 @@
 var dbobj = require('ifxnjs');
+var fs = require('fs');
 
 class IfxProductService
 {
@@ -7,8 +8,15 @@ class IfxProductService
     {
         this.Conn = undefined;
         this.ConnErr = undefined;
-        this.ConStr = "SERVER=ids0;DATABASE=db1;HOST=192.168.56.5;SERVICE=5550;UID=informix;PWD=xxxxx;"
 
+        // See the SampleConnInfo.json to create ConnInfo.json
+        var ConnInfo = JSON.parse( fs.readFileSync('ConnInfo.json', 'utf8') ); // do Synchronously read only
+
+        // this.ConnStr = "SERVER=ids0;DATABASE=db1;HOST=192.168.56.5;SERVICE=5550;UID=informix;PWD=xxxxx;"
+        this.ConnStr = ConnInfo.AllConns.Conn1.ConnStr;
+        console.log( "Connection String used for connection to Informix Server is " );
+        console.log( this.ConnStr );
+        console.log( );
     }
 
     DbConnect()
@@ -17,7 +25,7 @@ class IfxProductService
         {
             try
             {
-                this.Conn = dbobj.openSync(this.ConStr);
+                this.Conn = dbobj.openSync(this.ConnStr);
             }
             catch (e) {
                 this.Conn = undefined;
@@ -48,7 +56,7 @@ class IfxProductService
     ////////////////////////////////////////////////////////////////////
     GetReq(ReqBody)
     {
-        this.DbConnect();
+        // this.DbConnect();
         console.log("GetReq id=" + id);
         return ( {"id": 0 }  );
     }
