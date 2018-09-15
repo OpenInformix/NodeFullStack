@@ -73,14 +73,42 @@ class IfxProductService {
     }
 
     PostReq(id, ReqBody) {
-        console.log("PostReq: Success for id=" + id);
+        this.DbConnect();
+        // In real life, a schema validation may apply.
+        // Also use cursor for better performance
+        console.log( ReqBody );
+        var sql = "INSERT INTO products VALUES ( " + id + ", '" + ReqBody.name +"', '"+ ReqBody.strjs + "')"
+        var rc = this.DirExec( false, sql )
+        return( rc );
     }
 
     DelReq(id) {
-        console.log("DelReq id=" + id);
-        return (true);
+        this.DbConnect();
+        var sql = "DELETE FROM products WHERE ( id=" + id + ")";
+        var rc = this.DirExec( false, sql )
+        return( rc );
     }
 
+    DirExec( IgnErr, sql )
+    {
+      var rc = true;
+      try
+      {
+        var result = this.Conn.querySync( sql );
+        console.log( sql  );
+      }
+      catch (e)
+      {
+        console.log( "--- " + sql  );
+        if( IgnErr == false )
+        {
+          rc = false;
+          console.log(e);
+          console.log();
+        }
+      }
+      return(rc);
+    }
 }
 
 module.exports = new IfxProductService();
