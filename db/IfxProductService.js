@@ -74,17 +74,23 @@ class IfxProductService {
 
     PostReq(id, ReqBody) {
         this.DbConnect();
-        // In real life, a schema validation may apply.
-        // Also use cursor for better performance
+
+        // FYI: In real life, a schema validation may apply.
+        // Also for better performance, use prepared statement with param query and cursor.
         console.log( ReqBody );
-        var sql = "INSERT INTO products VALUES ( " + id + ", '" + ReqBody.name +"', '"+ ReqBody.strjs + "')"
-        var rc = this.DirExec( false, sql )
+
+        // ES2015 specification: support Template literals (enclosed by the back-tick (` `)) also
+        //  multi-line strings and string interpolation features
+        // https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Template_literals
+        var sql = `INSERT INTO products VALUES (  ${ id }, '${ ReqBody.name }', '${ReqBody.strjs}')`;
+
+        var rc = this.DirExec( false, sql );
         return( rc );
     }
 
     DelReq(id) {
         this.DbConnect();
-        var sql = "DELETE FROM products WHERE ( id=" + id + ")";
+        var sql = `DELETE FROM products WHERE ( id= ${id} )`;
         var rc = this.DirExec( false, sql )
         return( rc );
     }
