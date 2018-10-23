@@ -1,5 +1,5 @@
-// var dbs = require('../db/InMemDbService');
-var dbs = require('../db/IfxProductService');
+var dbs = require('../db/InMemDbService');
+// var dbs = require('../db/IfxProductService');
 var express = require('express');
 var router = express.Router();
 
