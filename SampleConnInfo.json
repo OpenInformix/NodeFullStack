@@ -2,7 +2,7 @@
 {
     "AllConns": {
         "Conn1": {
-            "ConnStr": "SERVER=ids0;DATABASE=db1;HOST=192.168.56.5;SERVICE=5550;UID=informix;PWD=xxxxx;",
+            "ConnStr": "SERVER=ids0;DATABASE=db1;HOST=127.0.0.1;SERVICE=9088;UID=informix;PWD=xxxx;",
             "Description" : "Testing Hello World"
         }
     }
