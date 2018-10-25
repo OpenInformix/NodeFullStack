@@ -5,7 +5,7 @@ curl    -X GET  http://localhost:3000/product/1
 # TODO
 # curl    -X GET  http://localhost:3000/product?id=1
 # with basic auth 
-# curl -u dbuser1:blue4you -X GET  http://localhost:3000/product
+# curl -u dbuser1:MyPassword -X GET  http://localhost:3000/product
 
 
 # POST
