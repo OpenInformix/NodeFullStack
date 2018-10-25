@@ -61,6 +61,30 @@ npm start
 # http://localhost:3000/order
 ```
 
+
+
+### Invoking product REST API by using CURL commands
+```bash
+# Get: SELECT all records from product table
+curl    -X GET http://localhost:3000/product
+
+# Get: SELECT a specific record where product ID=3
+curl    -X GET  http://localhost:3000/product/3
+
+# Delete a record where the product ID=3
+curl    -X DELETE  http://localhost:3000/product/1
+
+
+# POST: Inset a record to the database
+# POST
+curl -X POST -H "Accept: application/json" -H "Content-Type: application/json" -d '{
+  "id": 102,
+  "name": "Test-2"
+}
+' "http://localhost:3000/product"
+```
+
+
 ### Launch web frontend
 Once the web service has started then we can launch the initial page by pasting the following URL in your favorite web browser. This page then act as basic test facility for middle tier and AJAX call.
 ```bash
