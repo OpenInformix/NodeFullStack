@@ -114,8 +114,8 @@ The service virtualization layer for database access makes it easy to switch ove
 - Edit **MyConfig.json** by providing the right connection information to the Informix database.
 - Modify RESTful service source code (This can be a single line change)  
 
-For Example for the **product service** to use Informix Database, modify the **product service** source code **[product.js](routes\product.js)** by import (require) IfxProductService and comment the InMemDbService import. Then the modified code may look like this
-```java
+For Example for the **product service** to use Informix Database, modify the **product service** source code **[product.js](routes/product.js)** by import (require) IfxProductService and comment the InMemDbService import. Then the modified code may look like this
+```javascript
 // var dbs = require('../db/InMemDbService');
 var dbs = require('../db/IfxProductService');
 ```
