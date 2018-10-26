@@ -65,7 +65,7 @@ npm start
 
 
 
-### call REST API by using CURL commands
+### Test REST APIs with curl
 You may use Visual Studio Code with REST Client plugin for Convenient way of invoking CURL command from a script with HTTP extension.  
 - [REST Client plugin](https://marketplace.visualstudio.com/items?itemName=humao.rest-client)
 
@@ -95,17 +95,20 @@ By default the middle-tier is configured to use transient InMemory database for 
 ### Switchover data storage to Informix database.
 
 - Create database resources by running the SQL script [etc/Sample.sql](etc/Sample.sql)
-- Copy [SampleConfig.json](SampleConfig.json) to MyConfig.json
-- Modify MyConfig.json by providing the right connection information
+- Copy [SampleConfig.json](SampleConfig.json) to **MyConfig.json**
+- Edit **MyConfig.json** by providing the right connection information to the Informix database.
 - Modify RESTful service source code (This can be a single line change)  
 
-For Example for **product service** to sue Informix Database then you have to open source code of RESTful service provider for **product** which is [product.js](routes\product.js) and make code change as shown below.
+For Example for **product service** to sue Informix Database then you have to open source code of RESTful service provider for **product** which is **[product.js](routes\product.js)** and make code change as shown below.
 ```bash
-# Uncomment import of IfxProductService and comment the import of InMemDbService
+# Un-comment import of IfxProductService and then comment the import of InMemDbService
+# That is only change you may have to do
 # Then the code may look like this
 // var dbs = require('../db/InMemDbService');
 var dbs = require('../db/IfxProductService');
 ```
+The web service is ready to restart and reflect data storage switchover, please make sure you have set all setup needed for running Inforix node.js application. For more information about Inforix node.js please visit **[Informix node.js home page](https://openinformix.github.io/IfxNode/)**
+
 
 
 ### Ajax call to RESTful Web Service
