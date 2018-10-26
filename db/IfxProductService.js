@@ -15,11 +15,11 @@ class IfxProductService {
             // Get the connection string
             if (this.ConnStr == undefined) {
                 try {
-                    // See the SampleConnInfo.json to create ConnInfo.json
-                    var ConnInfo = JSON.parse(fs.readFileSync('ConnInfo.json', 'utf8')); // do Synchronously read only
+                    // See the SampleConfig.json to create MyConfig.json
+                    var MyConfig = JSON.parse(fs.readFileSync('MyConfig.json', 'utf8')); // do Synchronously read only
 
                     // this.ConnStr = "SERVER=ids0;DATABASE=db1;HOST=192.168.56.5;SERVICE=5550;UID=informix;PWD=xxxxx;"
-                    this.ConnStr = ConnInfo.AllConns.Conn1.ConnStr;
+                    this.ConnStr = MyConfig.AllConns.Conn1.ConnStr;
 
                     console.log("Connection String used for connection to Informix Server is ");
                     console.log(this.ConnStr);

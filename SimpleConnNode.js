@@ -88,18 +88,18 @@ function ifxnjs_OpenSync(ConStr)
 
 function main_func()
 {
-  // See the SampleConnInfo.json to create ConnInfo.json
+  // See the SampleConfig.json to create MyConfig.json
   //  Make sure the port used in connection is IDS SQLI port.
-  var ConnInfo = JSON.parse(fs.readFileSync('ConnInfo.json', 'utf8')); // do Synchronously read only
+  var MyConfig = JSON.parse(fs.readFileSync('MyConfig.json', 'utf8')); // do Synchronously read only
 
-  var ConnectionString = ConnInfo.AllConns.Conn1.ConnStr;
-  // ConnectionString = "SERVER=ids0;DATABASE=db1;HOST=127.0.0.1;SERVICE=9088;UID=informix;PWD=xxxxx;";
+  var ConnStr = MyConfig.AllConns.Conn1.ConnStr;
+  // ConnStr = "SERVER=ids0;DATABASE=db1;HOST=127.0.0.1;SERVICE=9088;UID=informix;PWD=xxxxx;";
 
   //Synchronous Execution
-  ifxnjs_OpenSync(ConnectionString);
+  ifxnjs_OpenSync(ConnStr);
 
   //Asynchronous Execution
-  ifxnjs_Open(ConnectionString);
+  ifxnjs_Open(ConnStr);
 }
 
 main_func();

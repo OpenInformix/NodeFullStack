@@ -7,7 +7,7 @@ This is a full stack web solution (with responsive web page) written in JavaScri
 #### This solution has following features.
 - REST API based on node.js and Express with middleware concept.
 - Making AJAX request from a web page and Send/Receive data to/from back-end.
-- Examples of REST verb usage such as GET, POST, DELETE
+- Examples of HTTP verb  usage such as GET, POST, DELETE
 - Serving static page (FYI: node.js with HTTP/1 is not an efficient static page serving engine)
 - Basic service virtualization for database access module.
 
@@ -66,6 +66,9 @@ npm start
 
 
 ### call REST API by using CURL commands
+You may use Visual Studio Code with REST Client plugin for Convenient way of invoking CURL command from a script with HTTP extension.  
+- [REST Client plugin](https://marketplace.visualstudio.com/items?itemName=humao.rest-client)
+
 ```bash
 # Get: SELECT all records from product table
 curl    -X GET http://localhost:3000/product
@@ -86,11 +89,60 @@ curl -X POST -H "Accept: application/json" -H "Content-Type: application/json" -
 ```
 
 
-### Ajax call RESTful Web Service
+### data storage
+By default the middle-tier is configured to use transient InMemory database for the data storage. The service virtualization layer for database access makes it easy to switch over to any other database.
+
+### Switchover data storage to Informix database.
+
+- Create database resources by running the SQL script [etc/Sample.sql](etc/Sample.sql)
+- Copy [SampleConfig.json](SampleConfig.json) to MyConfig.json
+- Modify MyConfig.json by providing the right connection information
+- Modify RESTful service source code (This can be a single line change)  
+
+For Example for **product service** to sue Informix Database then you have to open source code of RESTful service provider for **product** which is [product.js](routes\product.js) and make code change as shown below.
+```bash
+# Uncomment import of IfxProductService and comment the import of InMemDbService
+# Then the code may look like this
+// var dbs = require('../db/InMemDbService');
+var dbs = require('../db/IfxProductService');
+```
+
+
+### Ajax call to RESTful Web Service
 Once the web service has started then we can launch the initial page by pasting the following URL in your favorite web browser. This page then act as basic test facility for middle tier and AJAX call.
 ```bash
 # Open the following URL in your favorite web browser to get the initial web page.
 http://localhost:3000/
 ```
 
+Right now this web page has associated with only two HTTP VERBs, they are  
+- GET (SELECT) records from **product** table/document.
+- POST (INSERT) record into  **product* table/document.
+
+
+
+
+### FYI: Debug the solution.
+You may choose any technique that you are already familiar for debugging the solution. However it is worth evaluating the following tools for your solution development activity.
+
+- ##### Debug Frontend: [Chrome DevTools](https://developers.google.com/web/tools/chrome-devtools/)
+Chrome DevTools is a set of web developer tools built directly into the Google Chrome browser. DevTools can help you edit pages on-the-fly and diagnose problems quickly.
+```bash
+# Chrome DevTools
+https://developers.google.com/web/tools/chrome-devtools/
+
+# Debugging JavaScript - Chrome DevTools 101
+https://www.youtube.com/watch?v=H0XScE08hy8
+```
+
+- ##### Debug Backend: [Visual Studio Code](https://code.visualstudio.com/)
+The Visual Studio Code editor has built-in debugging support for the Node.js runtime and can debug JavaScript, TypeScript, and many other languages that are transpiled into JavaScript.
+
+```bash
+# Visual Studio Code
+https://code.visualstudio.com/
+
+# Node.js debugging in VS Code
+https://code.visualstudio.com/docs/nodejs/nodejs-debugging
+```
 

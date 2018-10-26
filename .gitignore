@@ -4,6 +4,7 @@
 
 # Informix Connection Information
 ConnInfo.json
+MyConfig.json
 
 **/*.map
 **/node_modules
