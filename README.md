@@ -66,7 +66,7 @@ npm start
 
 
 ### Test REST APIs with curl
-You may use Visual Studio Code with REST Client plugin for Convenient way of invoking CURL command from a script with HTTP extension.  
+You may use Visual Studio Code with REST Client plugin for convenient way of invoking CURL command from a script with HTTP extension.  
 - [REST Client plugin](https://marketplace.visualstudio.com/items?itemName=humao.rest-client)
 
 ```bash
