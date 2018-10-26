@@ -14,7 +14,7 @@ This is a full stack web solution (with responsive web page) written in JavaScri
 
 #### Source code location for the features
 - Responsive web page (public/index.html)
-- AJAX call (public/js/MyApiTest1Ajax.js)
+- AJAX call (public/js/MyAjaxLib.js)
 - REST API service (routes/product.js)
 - Static Page Serving API (routes/index.js)
 - Basic in memory DB (db/InMemDbService.js)
@@ -24,10 +24,10 @@ This is a full stack web solution (with responsive web page) written in JavaScri
 
 #### Logical divisions of this solution are.
 - #### Frontend (Presentation tier):  
-The source code for the presentation layer is located under **public** folder and the launch page is **[public/index.html](public/index.html)**. The major technologies used in this layer are HTML5, CSS3 and JavaScript. The Bootstrap4 library is being used to theme the visual aspect of the web page along with its responsiveness. Once the initial page is loaded all further communication with the middle tier is by using **AJAX**  by calling REST API exposed from middle tier. The source code for this AJAX call are mostly from **[MyApiTest1Ajax.js](public/js/MyApiTest1Ajax.js)**
+The source code for the presentation layer is located under **public** folder and the launch page is **[public/index.html](public/index.html)**. The major technologies used in this layer are HTML5, CSS3 and JavaScript. The Bootstrap4 library is being used to theme the visual aspect of the web page along with its responsiveness. Once the initial page is loaded all further communication with the middle tier is by using **AJAX**  by calling REST API exposed from middle tier. The source code for this AJAX call are mostly from **[MyAjaxLib.js](public/js/MyAjaxLib.js)**
 
 - #### Middle tier (Application Tier):
-In this application, the middle tier module act as a webserver, REST based API service and also provide basic service virtualization layer for database access.
+In this application, the middle tier module act as a static webserver for the frontend web page, RESTful Web Service and also provide basic service virtualization layer for database access.
 
 - #### Backend Database (Data Tier):
 This layer is responsible for data storage, in this solution we are using Informix Database also a very simple in memory database by using JSON object.
@@ -65,7 +65,7 @@ npm start
 
 
 
-### Invoking product REST API by using CURL commands
+### call REST API by using CURL commands
 ```bash
 # Get: SELECT all records from product table
 curl    -X GET http://localhost:3000/product
@@ -87,7 +87,7 @@ curl -X POST -H "Accept: application/json" -H "Content-Type: application/json" -
 ```
 
 
-### Launch web frontend
+### Ajax call RESTful Web Service
 Once the web service has started then we can launch the initial page by pasting the following URL in your favorite web browser. This page then act as basic test facility for middle tier and AJAX call.
 ```bash
 # Open the following URL in your favorite web browser to get the initial web page.

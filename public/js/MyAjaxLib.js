@@ -1,6 +1,6 @@
 'use strict';
 
-class MyApiTest1
+class MyDemo1
 {
     constructor()
     {
@@ -112,7 +112,7 @@ class MyApiTest1
     }
 }
 
-const DemoObj = new MyApiTest1();
+const DemoObj = new MyDemo1();
 
 
 //$(document).ready(  function ()
