@@ -70,15 +70,14 @@ npm start
 # Get: SELECT all records from product table
 curl    -X GET http://localhost:3000/product
 
-# Get: SELECT a specific record where product ID=3
+# Get: SELECT a specific record where product id=3
 curl    -X GET  http://localhost:3000/product/3
 
-# Delete a record where the product ID=3
-curl    -X DELETE  http://localhost:3000/product/1
+# Delete a record where the product id=2
+curl    -X DELETE  http://localhost:3000/product/2
 
 
-# POST: Inset a record to the database
-# POST
+# POST: Inset a record to the database with an id=102
 curl -X POST -H "Accept: application/json" -H "Content-Type: application/json" -d '{
   "id": 102,
   "name": "Test-2"

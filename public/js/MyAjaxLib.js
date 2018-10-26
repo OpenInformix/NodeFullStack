@@ -118,10 +118,10 @@ const DemoObj = new MyDemo1();
 //$(document).ready(  function ()
 $(() => {
     // jQuery document ready
-    var LocalData = '{ "Description": "This is from static page", "action" : "do a result refresh", "name": "Static Json Data","author": { "name": "Gandhi", "email": "123@gmail.com", "contact": [{"location": "office", "number": 123456}, {"location": "home", "number": 987654}] } }';
+    var QuickResponseStaticData = '{ "Description": "This data is from static page", "action" : "do a result refresh", "name": "Static JSON data of this page","author": { "name": "Tom", "email": "123@gmail.com", "contact": [{"location": "office", "number": 123456}, {"location": "home", "number": 987654}] } }';
 
-    //DisplayData(LocalData);
-    DemoObj.DisplayJsonData(LocalData);
+    //DisplayData(QuickResponseStaticData);
+    DemoObj.DisplayJsonData(QuickResponseStaticData);
     DemoObj.DisplayError(undefined);
 
     $('#MyInputTextarea').empty();
