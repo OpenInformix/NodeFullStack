@@ -1,8 +1,7 @@
-## SimpleNodeREST
-Licensed under the Apache License, Version 2.0
-
-
-### SimpleNodeREST (A full stack web solution demo)
+## Node Full Stack
+Licensed under the Apache License, Version 2.0  
+  
+## JavaScript based Full Stack Web Solution
 This is a full stack web solution (with responsive web page) written in JavaScript with three-tier architecture. In general applications using three-tier architecture provides many benefits such as speed of development, scalability, performance, and availability of the web solution etc. Using **Node.js** for the application add additional benefits and flexibility.  **We can use same programing language (JavaScript) across the stack**, therefore, **all developers can easily understand and collaborate**. FYI: The purpose of this demo is purely educational, no security aspect has considered with it.  
   
 #### This solution has following features.
@@ -37,18 +36,21 @@ This layer is responsible for data storage, in this solution we are using Inform
 ```bash
 # FYI: you may use any folder to clone the source, let us use /work/demo
 cd /work/demo
-git clone https://github.com/OpenInformix/SimpleNodeREST.git
+git clone https://github.com/OpenInformix/NodeFullStack.git
+
 
 # fetch all dependent packages
-cd SimpleNodeREST
+cd NodeFullStack
 npm install
 ```
 
 ### Starting the REST API service module
 ```bash
-cd /work/demo/SimpleNodeREST
+cd /work/demo/NodeFullStack
 npm start
-
+```
+  
+```bash
 # Currently only the product REST API has data access facility implemented.
 # The remaining REST API will give you dummy response without doing database access.
 
