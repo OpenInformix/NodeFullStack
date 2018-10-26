@@ -4,7 +4,7 @@ Licensed under the Apache License, Version 2.0
 ## JavaScript based Full Stack Web Solution
 This is a full stack web solution (with responsive web page) written in JavaScript with three-tier architecture. In general applications using three-tier architecture provides many benefits such as speed of development, scalability, performance, and availability of the web solution etc. Using **Node.js** for the application add additional benefits and flexibility.  **We can use same programing language (JavaScript) across the stack**, therefore, **all developers can easily understand and collaborate**. FYI: The purpose of this demo is purely educational, no security aspect has considered with it.  
   
-#### This solution has following features.
+### This solution has following features.
 - REST API based on node.js and Express with middleware concept.
 - Making AJAX request from a web page and Send/Receive data to/from back-end.
 - Examples of HTTP verb  usage such as GET, POST, DELETE
@@ -12,7 +12,7 @@ This is a full stack web solution (with responsive web page) written in JavaScri
 - Basic service virtualization for database access module.
 
 
-#### Source code location for the features
+### Source code location for the features
 - Responsive web page (public/index.html)
 - AJAX call (public/js/MyAjaxLib.js)
 - REST API service (routes/product.js)
@@ -21,8 +21,12 @@ This is a full stack web solution (with responsive web page) written in JavaScri
 - Informix Database Connectivity (db/IfxProductService.js)
 - Basic CURL command to test the REST API (Test/TestProd.http)
 
+### Data Storage
+By default the middle-tier is configured to use transient InMemory database for the data storage. The service virtualization layer for database access makes it easy to switch over to any other database with a single line change. Implementation of such virtualization simplify development and unit testing process of the web solution. Then integration testing and production the solution uses actual database.  
 
-#### Logical divisions of this solution are.
+Let us simulate a scenario where the solution is using InMemory database for development and unit testing, and then switchover to Informix database for integration testing and production deployment.
+
+### Logical divisions of this solution are.
 - #### Frontend (Presentation tier):  
 The source code for the presentation layer is located under **public** folder and the launch page is **[public/index.html](public/index.html)**. The major technologies used in this layer are HTML5, CSS3 and JavaScript. The Bootstrap4 library is being used to theme the visual aspect of the web page along with its responsiveness. Once the initial page is loaded all further communication with the middle tier is by using **AJAX**  by calling REST API exposed from middle tier. The source code for this AJAX call is mostly from **[MyAjaxLib.js](public/js/MyAjaxLib.js)**
 
@@ -40,7 +44,7 @@ git clone https://github.com/OpenInformix/NodeFullStack.git
 
 
 # fetch all dependent packages
-cd NodeFullStack
+cd /work/demo/NodeFullStack
 npm install
 ```
 
@@ -89,11 +93,22 @@ curl -X POST -H "Accept: application/json" -H "Content-Type: application/json" -
 ```
 
 
-### data storage
-By default the middle-tier is configured to use transient InMemory database for the data storage. The service virtualization layer for database access makes it easy to switch over to any other database.
+### Ajax call to RESTful Web Service
+Once the web service has started then we can launch the initial page by pasting the following URL in your favorite web browser. This page then act as basic test facility for middle tier and AJAX calls.
 
-### Switchover data storage to Informix database.
+```bash
+# Open the following URL in your favorite web browser to get the initial web page.
+http://localhost:3000/
+```
 
+Right now this web page has associated with only two HTTP VERBs, they are  
+- GET (SELECT) records from **product** table/document.
+- POST (INSERT) record into  **product* table/document.
+
+
+
+### Switchover Data Storage to Informix database.
+The service virtualization layer for database access makes it easy to switch over to any other database with a single line change. Let us simulate a scenario where the solution is ready for inegration testing. 
 - Create database resources by running the SQL script [etc/Sample.sql](etc/Sample.sql)
 - Copy [SampleConfig.json](SampleConfig.json) to **MyConfig.json**
 - Edit **MyConfig.json** by providing the right connection information to the Informix database.
@@ -110,21 +125,16 @@ var dbs = require('../db/IfxProductService');
 The web service is ready to restart and reflect data storage switchover, please make sure you have set all setup needed for running Informix node.js application. For more information about Inforix node.js please visit **[Informix node.js home page](https://openinformix.github.io/IfxNode/)**
 
 
-
-### Ajax call to RESTful Web Service
-Once the web service has started then we can launch the initial page by pasting the following URL in your favorite web browser. This page then act as basic test facility for middle tier and AJAX calls.
-
+#### Restart the service
 ```bash
-# Open the following URL in your favorite web browser to get the initial web page.
-http://localhost:3000/
+# To kill the service 
+Ctrl+C
+
+# Restart the service
+npm start
 ```
-
-Right now this web page has associated with only two HTTP VERBs, they are  
-- GET (SELECT) records from **product** table/document.
-- POST (INSERT) record into  **product* table/document.
-
-
-
+Good luck with your integration testing!!!  
+  
 
 ### FYI: Debug the solution.
 You may choose any technique that you are already familiar for debugging the solution. However it is worth evaluating the following tools for your solution development activity.
