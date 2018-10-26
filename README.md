@@ -24,13 +24,13 @@ This is a full stack web solution (with responsive web page) written in JavaScri
 
 #### Logical divisions of this solution are.
 - #### Frontend (Presentation tier):  
-The source code for the presentation layer is located under **public** folder and the launch page is **[public/index.html](public/index.html)**. The major technologies used in this layer are HTML5, CSS3 and JavaScript. The Bootstrap4 library is being used to theme the visual aspect of the web page along with its responsiveness. Once the initial page is loaded all further communication with the middle tier is by using **AJAX**  by calling REST API exposed from middle tier. The source code for this AJAX call are mostly from **[MyAjaxLib.js](public/js/MyAjaxLib.js)**
+The source code for the presentation layer is located under **public** folder and the launch page is **[public/index.html](public/index.html)**. The major technologies used in this layer are HTML5, CSS3 and JavaScript. The Bootstrap4 library is being used to theme the visual aspect of the web page along with its responsiveness. Once the initial page is loaded all further communication with the middle tier is by using **AJAX**  by calling REST API exposed from middle tier. The source code for this AJAX call is mostly from **[MyAjaxLib.js](public/js/MyAjaxLib.js)**
 
 - #### Middle tier (Application Tier):
 In this application, the middle tier module act as a static webserver for the frontend web page, RESTful Web Service and also provide basic service virtualization layer for database access.
 
 - #### Backend Database (Data Tier):
-This layer is responsible for data storage, in this solution we are using Informix Database also a very simple in memory database by using JSON object.
+This layer is responsible for data storage; in this solution we are using Informix Database also a very simple in memory database by using JSON object.
 
 ### Get the demo source code
 ```bash
@@ -107,12 +107,13 @@ For Example for **product service** to sue Informix Database then you have to op
 // var dbs = require('../db/InMemDbService');
 var dbs = require('../db/IfxProductService');
 ```
-The web service is ready to restart and reflect data storage switchover, please make sure you have set all setup needed for running Inforix node.js application. For more information about Inforix node.js please visit **[Informix node.js home page](https://openinformix.github.io/IfxNode/)**
+The web service is ready to restart and reflect data storage switchover, please make sure you have set all setup needed for running Informix node.js application. For more information about Inforix node.js please visit **[Informix node.js home page](https://openinformix.github.io/IfxNode/)**
 
 
 
 ### Ajax call to RESTful Web Service
-Once the web service has started then we can launch the initial page by pasting the following URL in your favorite web browser. This page then act as basic test facility for middle tier and AJAX call.
+Once the web service has started then we can launch the initial page by pasting the following URL in your favorite web browser. This page then act as basic test facility for middle tier and AJAX calls.
+
 ```bash
 # Open the following URL in your favorite web browser to get the initial web page.
 http://localhost:3000/
